@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../../providers/location_provider.dart';
 import '../tab_box.dart';
@@ -12,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   _init() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(milliseconds: 1000));
     if (context.mounted) {
       Navigator.pushReplacement(
         context,
@@ -35,10 +36,12 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(child: Consumer<LocationProvider>(
         builder: (context, locationProvider, child) {
           if (locationProvider.latLong == null) {
-            return const Text("EMPTY LOCATION!!!");
+            return Text("LOCATION!!!", style: TextStyle(
+              fontSize: 35.sp,
+              fontWeight: FontWeight.w600
+            ),);
           } else {
-            return Text(
-                "Splash Screen:${locationProvider.latLong!.longitude}  and ${locationProvider.latLong!.latitude}");
+            return Text("");
           }
         },
       )),
