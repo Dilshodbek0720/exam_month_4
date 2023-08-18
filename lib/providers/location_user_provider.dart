@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../data/local/local_database.dart';
 import '../data/models/address_model/adress_model.dart';
@@ -49,6 +50,18 @@ class LocationUserProvider with ChangeNotifier{
     etajController.clear();
     kvartiraController.clear();
     manzilController.clear();
+  }
+
+  String toast = "Malumotlarni to'liq kiriting!";
+
+  String isCreate(){
+    if(podezController.text.isNotEmpty && etajController.text.isNotEmpty && kvartiraController.text.isNotEmpty && manzilController.text.isNotEmpty){
+      toast = "Malumotlar to'liq kiritildi";
+      return toast;
+    }else{
+      toast = "Malumotlarni to'liq kiriting!";
+      return toast;
+    }
   }
 
 }

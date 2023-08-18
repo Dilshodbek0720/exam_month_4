@@ -52,17 +52,17 @@ class _CountryScreenState extends State<CountryScreen> {
                 ),
                 SizedBox(height: 12.h),
                 Text(
-                  'Capital Cities: ${country.capital?.join(", ")}',
-                  style: const TextStyle(fontSize: 18),
-                ),
-                SizedBox(height: 7.h),
-                Text(
-                  'Population: ${country.population}',
+                  'Capital: ${country.capital?.join(", ")}',
                   style: const TextStyle(fontSize: 18),
                 ),
                 SizedBox(height: 7.h),
                 Text(
                   'Region: ${country.region}',
+                  style: const TextStyle(fontSize: 18),
+                ),
+                SizedBox(height: 7.h),
+                Text(
+                  'Population: ${country.population}',
                   style: const TextStyle(fontSize: 18),
                 ),
                 SizedBox(height: 7.h),

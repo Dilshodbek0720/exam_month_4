@@ -5,6 +5,7 @@ import 'package:exam_repo_n8/ui/users_screen/widgets/global_button.dart';
 import 'package:exam_repo_n8/ui/users_screen/widgets/global_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../data/models/address_model/adress_model.dart';
@@ -192,11 +193,19 @@ class _MapScreenState extends State<MapScreen> {
               SizedBox(height: 10.h,),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 6.w),
-                child: GlobalButton(title: "Saved", onTap: (){
-                  AddressCallProvider adp = Provider.of<AddressCallProvider>(context, listen: false);
-                  context.read<LocationUserProvider>().insertLocationUser(addressModel: AddressModel(address: adp.scrolledAddressText, lat: currentCameraPosition.target.latitude.toString(), long: currentCameraPosition.target.longitude.toString(), padez: context.read<LocationUserProvider>().podezController.text, etaj: context.read<LocationUserProvider>().etajController.text, kvartira: context.read<LocationUserProvider>().kvartiraController.text,manzil: context.read<LocationUserProvider>().manzilController.text,),);
-                  context.read<LocationUserProvider>().clearText();
-                  Navigator.pop(context);
+                child: GlobalButton(title: "Saved", onTap: () async{
+                  if(context.read<LocationUserProvider>().isCreate() == "Malumotlar to'liq kiritildi"){
+                    AddressCallProvider adp = Provider.of<AddressCallProvider>(context, listen: false);
+                    context.read<LocationUserProvider>().insertLocationUser(addressModel: AddressModel(address: adp.scrolledAddressText, lat: currentCameraPosition.target.latitude.toString(), long: currentCameraPosition.target.longitude.toString(), padez: context.read<LocationUserProvider>().podezController.text, etaj: context.read<LocationUserProvider>().etajController.text, kvartira: context.read<LocationUserProvider>().kvartiraController.text,manzil: context.read<LocationUserProvider>().manzilController.text,),);
+                    context.read<LocationUserProvider>().clearText();
+                    Navigator.pop(context);
+                  }else{
+                    showDialog(context: context, builder: (context){
+                      return AlertDialog(
+                        title: Text("Malumotlar to'liq kiritilmadi!"),
+                      );
+                    });
+                  }
                 }),
               )
             ],

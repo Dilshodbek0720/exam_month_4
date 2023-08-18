@@ -1,4 +1,3 @@
-import 'package:exam_repo_n8/providers/api_provider.dart';
 import 'package:exam_repo_n8/providers/location_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:exam_repo_n8/ui/custom_paint_screen/custom_paint_screen.dart';
@@ -23,9 +22,9 @@ class _TabBoxState extends State<TabBox> {
   @override
   void initState() {
     screens.add(const CountryScreen());
-    screens.add(UsersScreen());
+    screens.add(const UsersScreen());
     screens.add(MapScreen(latLong: context.read<LocationProvider>().latLong!,));
-    screens.add(CustomPaintScreen());
+    screens.add(const CustomPaintScreen());
 
     super.initState();
   }

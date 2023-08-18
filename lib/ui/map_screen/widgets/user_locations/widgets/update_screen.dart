@@ -46,9 +46,14 @@ class _UpdateScreenState extends State<UpdateScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 50,
-        backgroundColor: Colors.black,
-        title: const Text("Update Screen"),
+        elevation: 1,
+        centerTitle: true,
+        backgroundColor: Colors.greenAccent,
+        title: Text("Update Screen", style: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 20.sp,
+          color: AppColors.C_01AA4F,
+        ),),
       ),
       body: Stack(
         children: [

@@ -93,7 +93,7 @@ class _CustomPaintScreenState extends State<CustomPaintScreen> {
           }));
         }, child: Text("Car", style: TextStyle(
           fontWeight: FontWeight.w700,
-          fontSize: 16.sp,
+          fontSize: 20.sp,
           color: AppColors.C_01AA4F,
         ),),)
         )

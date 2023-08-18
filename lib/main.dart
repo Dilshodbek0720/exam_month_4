@@ -26,7 +26,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => UserProvider(userService: UserService())),
         ChangeNotifierProvider(create: (context) => ApiProvider(apiService: ApiService())),
       ],
-    child: MainApp(),
+    child: const MainApp(),
   ));
 }
 
@@ -40,7 +40,7 @@ class MainApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
+        return const MaterialApp(
           debugShowCheckedModeBanner: false,
           home: SplashScreen(),
         );

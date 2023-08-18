@@ -46,6 +46,7 @@ class _UserLocationsScreenState extends State<UserLocationsScreen> {
                         }));
                       },
                       title: Text("Address:  ${provider.locationUser[index].address}", style: const TextStyle(fontSize: 20),),
+                      subtitle: Text("Podez: ${provider.locationUser[index].padez} Etaj: ${provider.locationUser[index].etaj}"),
                       trailing: IconButton(onPressed: () async{
                         provider.deleteLocationUser(id: context.read<LocationUserProvider>().locationUser[index].id!);
                       }, icon: const Icon(Icons.delete, color: Colors.redAccent,size: 26,),),
