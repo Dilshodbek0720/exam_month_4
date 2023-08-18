@@ -1,4 +1,4 @@
-package com.example.third_exam_n8
+package uz.users.app
 
 import io.flutter.embedding.android.FlutterActivity
 
